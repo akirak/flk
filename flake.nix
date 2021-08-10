@@ -114,7 +114,10 @@
         importables = rec {
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = rec {
-            base = [ profiles.direnv profiles.git profiles.gpg ];
+            base = [
+              profiles.direnv profiles.git profiles.gpg
+              profiles.emacs
+                   ];
             graphical = base ++ [ profiles.firefox profiles.alacritty ];
             development = graphical ++ [profiles.xmonad];
           };
