@@ -116,7 +116,7 @@
           suites = rec {
             base = [
               profiles.direnv profiles.git profiles.gpg
-              profiles.emacs
+              profiles.emacs profiles.zsh
                    ];
             graphical = base ++ [ profiles.firefox profiles.alacritty ];
             development = graphical ++ [profiles.xmonad];
