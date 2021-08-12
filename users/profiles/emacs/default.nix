@@ -7,6 +7,7 @@
         # package = pkgs.emacs;
         useNixRun = true;
         directory = "~/.config/emacs";
+        customFile = "~/local/emacs/custom.el";
       };
     };
   };
