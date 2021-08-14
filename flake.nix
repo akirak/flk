@@ -117,8 +117,12 @@
             base = [
               profiles.direnv profiles.git profiles.gpg
               profiles.emacs profiles.zsh
-                   ];
-            graphical = base ++ [ profiles.firefox profiles.alacritty ];
+            ];
+            graphical = base ++ [
+              profiles.firefox
+              profiles.alacritty
+              profiles.mpv
+            ];
             development = graphical ++ [profiles.xmonad];
           };
         };
