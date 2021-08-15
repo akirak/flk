@@ -8,6 +8,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.DynamicWorkspaces
+import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.List as L
 -- polybar
@@ -48,6 +49,8 @@ myHandleEventHook =
 myKeybindings =
   [ ((mod4Mask, xK_p), spawn "rofi -show combi -combi-modi window,drun,run")
   , ((mod4Mask, xK_r), renameWorkspace myXPConfig)
+  , ((mod4Mask, xK_BackSpace), swapScreens)
+  , ((mod4Mask .|. shiftMask, xK_q), confirmQuit)
   ]
   ++
   [ ((modm, key), c horizontalScreenOrderer f)
@@ -59,6 +62,13 @@ myKeybindings =
   | (modm, action) <- [(mod4Mask, viewWorkspaceByPrefix . show), (mod4Mask .|. shiftMask, shiftToWorkspaceByPrefix . show)]
   , (key, i) <- zip [xK_1..xK_9] [1..9]
   ]
+
+confirmQuit :: X ()
+confirmQuit = do
+  ws <- withWindowSet $ return . W.allWindows
+  if null ws
+    then io (exitWith ExitSuccess)
+    else windows $ W.focusWindow (head ws)
 
 myXPConfig = defaultXPConfig
 
@@ -74,6 +84,13 @@ shiftToWorkspaceByPrefix prefix = windows $ \s ->
 
 findTagByPrefix prefix s =
   L.find (prefix `L.isPrefixOf`) $ map W.tag $ W.workspaces s
+
+swapScreens =
+  windows $ \s ->
+    case W.visible s of
+      [] -> s
+      (screen:_) ->
+        W.greedyView (W.tag (W.workspace screen)) s
 
 -- Below was stolen from https://github.com/gvolpe/nix-config/blob/master/home/programs/xmonad/config.hs
 
