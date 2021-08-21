@@ -10,6 +10,11 @@
 
   home-manager.users.akirakomamura = { suites, ... }: {
     imports = suites.development;
+
+    programs.git = {
+      userEmail = "akira.komamura@gmail.com";
+      userName = "Akira Komamura";
+    };
   };
 
   security.sudo.wheelNeedsPassword = false;
