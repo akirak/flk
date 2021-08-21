@@ -55,6 +55,8 @@
     # ];
   };
 
+  environment.systemPackages = with pkgs; [ clinfo ];
+
   # Decrypt LUKS storage on boot
   boot.initrd.luks.reusePassphrases = true;
   boot.initrd.luks.devices =
@@ -120,6 +122,7 @@
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
+        intel-compute-runtime
       ];
     };
   };
