@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -24,5 +25,5 @@
     signing.key = "5B3390B01C01D3E";
   };
 
-  programs.gh.enable = true;
+  home.packages = with pkgs; [ gh ];
 }
