@@ -117,6 +117,7 @@
             base = [
               profiles.direnv profiles.git profiles.gpg
               profiles.emacs profiles.zsh
+              profiles.nix-tools
             ];
             graphical = base ++ [
               profiles.firefox
