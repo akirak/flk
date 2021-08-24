@@ -34,6 +34,10 @@ in
       whois
     ];
 
+    sessionVariables = {
+      "TMPDIR" = "/tmp";
+    };
+
     shellInit = ''
       export STARSHIP_CONFIG=${
         pkgs.writeText "starship.toml"
