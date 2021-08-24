@@ -101,6 +101,7 @@
             personal-desktop =
               graphical ++
               [
+                podman
                 xmonad
                 users.akirakomamura
               ];
