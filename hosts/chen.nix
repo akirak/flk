@@ -112,6 +112,10 @@
     [{ device = "/dev/disk/by-uuid/6e1f6320-2dd3-45ad-8d83-e916dffc9f1d"; }];
 
   nix.maxJobs = pkgs.lib.mkDefault 8;
+  nix.gc = {
+    dates = "2weeks";
+  };
+
   powerManagement.cpuFreqGovernor = pkgs.lib.mkDefault "powersave";
 
   hardware = {

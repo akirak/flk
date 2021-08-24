@@ -120,7 +120,14 @@ in
 
     autoOptimiseStore = true;
 
-    gc.automatic = true;
+    gc = {
+      # I will define the GC frequently in individual host settings.
+      # The format is defined in systemd.time (7)
+      #
+      # dates = "weekly";
+
+      automatic = true;
+    };
 
     optimise.automatic = true;
 
