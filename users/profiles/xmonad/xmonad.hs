@@ -41,6 +41,8 @@ myManageHook =
     [ resource =? ".arandr-wrapped" --> doFloat
     , resource =? ".blueman-manager-wrapped" --> doFloat
     , resource =? "pavucontrol" --> doFloat
+    , className =? "mpv" --> doFloat
+    -- , resource =? "gl" --> doFloat
     ]
 
 myHandleEventHook =
