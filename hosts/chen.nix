@@ -120,7 +120,7 @@
 
   # X display settings
   services.xserver = {
-    # useGlamor = true;
+    useGlamor = true;
     xrandrHeads = [
       {
         output = "HDMI1";
