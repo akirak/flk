@@ -7,13 +7,6 @@
       pulseSupport = true;
       iwSupport = true;
     };
-    # config = {
-    #   "bar/top" = {
-    #     monitor = "\${env:MONITOR:HDMI2}";
-    #     # inherit = "bar/main";
-    #     tray-position = "right";
-    #   };
-    # };
     extraConfig = ''
       [module/xmonad]
       type = custom/script

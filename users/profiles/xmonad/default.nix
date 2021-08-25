@@ -19,9 +19,6 @@
     enable = true;
 
     initExtra = ''
-      if [ -x "$HOME/.screenlayout/default.sh" ]; then
-        "$HOME/.screenlayout/default.sh"
-      fi
       pasystray &
       blueman-applet &
       nm-applet --sm-disable --indicator &
