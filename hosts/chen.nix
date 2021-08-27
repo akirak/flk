@@ -1,6 +1,8 @@
 { suites, pkgs, ... }:
 {
-  imports = suites.personal-desktop;
+  imports = suites.personal-desktop ++ [
+    ../profiles/zfs-pools/rpool
+  ];
 
   networking.hostName = "chen";
   time.timeZone = "Asia/Tokyo";
@@ -43,18 +45,6 @@
   #  networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  environment.persistence."/persist" = {
-    directories = [
-      "/var/log"
-      "/var/lib/bluetooth"
-      "/etc/NetworkManager/system-connections"
-      # "/var/lib/acme"
-    ];
-    # files = [
-    #   "/etc/machine-id"
-    # ];
-  };
-
   environment.systemPackages = with pkgs; [ clinfo ];
 
   # Decrypt LUKS storage on boot
@@ -79,26 +69,6 @@
     {
       device = "/dev/disk/by-uuid/4436-C0E5";
       fsType = "vfat";
-    };
-
-  fileSystems."/nix" =
-    {
-      device = "rpool/local/nix";
-      fsType = "zfs";
-      options = [ "noatime" ];
-    };
-
-  fileSystems."/persist" =
-    {
-      device = "rpool/safe/persist";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
-
-  fileSystems."/home" =
-    {
-      device = "rpool/safe/home";
-      fsType = "zfs";
     };
 
   fileSystems."/public" =

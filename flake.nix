@@ -111,7 +111,8 @@
 
       home = {
         modules = ./users/modules/module-list.nix;
-        externalModules = [ ];
+        externalModules = [
+        ];
         importables = rec {
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = rec {
