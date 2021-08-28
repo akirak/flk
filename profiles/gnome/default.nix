@@ -3,11 +3,11 @@
     ../gdm
   ];
 
-  services.xserver.desktopManager.gnome3 = {
+  services.xserver.desktopManager.gnome = {
     enable = true;
   };
 
-  services.gnome3 = {
+  services.gnome = {
     chrome-gnome-shell.enable = true;
   };
 }

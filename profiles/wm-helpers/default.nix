@@ -25,7 +25,7 @@
     packages = [ pkgs.gnome3.dconf ];
   };
 
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   services.blueman.enable = true;
 }
