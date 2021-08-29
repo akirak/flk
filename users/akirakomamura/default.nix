@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   users.users.akirakomamura = {
     uid = 1000;
@@ -12,6 +12,10 @@
     imports = suites.development ++ [
       ../profiles/linkfarm
       ../profiles/linkfarm-annex
+    ];
+
+    home.packages = with pkgs; [
+      git-annex
     ];
 
     programs.git = {
