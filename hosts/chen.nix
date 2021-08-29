@@ -12,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   # This kernel module is needed if and only if unlock LUKS devices on boot
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  # boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -48,15 +48,15 @@
   environment.systemPackages = with pkgs; [ clinfo ];
 
   # Decrypt LUKS storage on boot
-  boot.initrd.luks.reusePassphrases = true;
-  boot.initrd.luks.devices =
-    {
-      cryptdata = {
-        device = "/dev/disk/by-uuid/400a1403-8fe8-4817-a4fb-b6ec7b0fd0d0";
-        preLVM = true;
-        allowDiscards = true;
-      };
-    };
+  # boot.initrd.luks.reusePassphrases = true;
+  # boot.initrd.luks.devices =
+  #   {
+  #     cryptdata = {
+  #       device = "/dev/disk/by-uuid/400a1403-8fe8-4817-a4fb-b6ec7b0fd0d0";
+  #       preLVM = true;
+  #       allowDiscards = true;
+  #     };
+  #   };
 
   fileSystems."/" =
     {
@@ -69,13 +69,6 @@
     {
       device = "/dev/disk/by-uuid/4436-C0E5";
       fsType = "vfat";
-    };
-
-  fileSystems."/public" =
-    {
-      device = "/dev/mapper/860qvo1t-public";
-      fsType = "ext4";
-      options = [ "relatime" "discard" ];
     };
 
   swapDevices =
