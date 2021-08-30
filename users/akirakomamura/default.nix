@@ -9,7 +9,7 @@
   };
 
   home-manager.users.akirakomamura = { suites, ... }: {
-    imports = suites.development ++ [
+    imports = suites.development ++ suites.home ++ [
       ../profiles/linkfarm
       ../profiles/linkfarm-annex
     ];

@@ -101,6 +101,7 @@
             personal-desktop =
               graphical ++
               [
+                fuse
                 podman
                 xmonad
                 users.akirakomamura
@@ -127,6 +128,7 @@
               profiles.mpv
             ];
             development = graphical ++ [profiles.xmonad];
+            home = [ profiles.rclone ];
           };
         };
       };
