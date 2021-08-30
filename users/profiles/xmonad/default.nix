@@ -19,6 +19,7 @@
     enable = true;
 
     initExtra = ''
+      setxkbmap -option ctrl:nocaps
       pasystray &
       blueman-applet &
       nm-applet --sm-disable --indicator &
