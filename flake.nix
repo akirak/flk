@@ -134,7 +134,7 @@
       };
 
       devshell.externalModules = { pkgs, ... }: {
-        packages = [ pkgs.agenix pkgs.gnumake ];
+        packages = [ pkgs.gnumake ];
       };
 
       homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;

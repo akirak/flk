@@ -1,7 +1,7 @@
 switch:
-	nix-shell --run "flk $(shell uname -n) switch"
+	flk $(shell uname -n) switch
 .PHONY: switch
 
 build:
-	nix-shell --run "flk $(shell uname -n) build"
+	flk $(shell uname -n) build
 .PHONY: build
