@@ -79,13 +79,8 @@ let
   normalDerivation = runCommandNoCC "emacs-profile-${name}"
     {
       preferLocalBuild = true;
-      nativeBuildInputs = [
-        makeWrapper
-      ];
-      propagatedBuildInputs =
-        if useNixRun
-        then [ ]
-        else [ package ];
+      nativeBuildInputs = [ makeWrapper ];
+      propagatedBuildInputs = [ package ];
     } ''
     mkdir -p $out/bin
     makeWrapper ${package}/bin/emacs $out/bin/emacs-${name} \
