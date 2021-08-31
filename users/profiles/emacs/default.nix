@@ -8,6 +8,7 @@
         useNixRun = true;
         directory = "~/.config/emacs";
         customFile = "~/.local/share/emacs/custom.el";
+        origin = "https://github.com/akirak/emacs.d.git";
       };
     };
   };
