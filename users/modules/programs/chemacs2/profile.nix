@@ -3,6 +3,7 @@
 , symlinkJoin
 , makeDesktopItem
 , writeShellScriptBin
+, writeShellScript
 , runtimeShell
 , lib
 , emacs
@@ -21,6 +22,8 @@
   appName ? ""
 , # The app that runs emacsclient, if any
   clientAppName ? null
+# Clone this repository to the user emacs directory
+, origin ? null
 }:
 let
   expandTilde = str:
@@ -46,6 +49,33 @@ let
         profileAttrs)
     + ")";
 
+  absoluteDirectory = expandTilde directory;
+
+  ensureConfigCommand =
+    if origin == null
+    then ""
+    else ''
+      pwd="$PWD"
+      if [[ -d "${absoluteDirectory}" ]]; then
+        cd "${absoluteDirectory}"
+        realOrigin="$(git config --get --local remote.origin.url)"
+        if ! [[ "$realOrigin"  = ${origin} ]]; then
+          cat <<MSG >&2
+      The origin of $PWD does not match:
+        Expected: ${origin}
+        Actual: $realOrigin
+      MSG
+          exit 1
+        fi
+      else
+        mkdir -p "$(dirname "${absoluteDirectory}")"
+        git clone --recurse-submodules "${origin}" "${absoluteDirectory}"
+      fi
+      cd "$pwd"
+    '';
+
+  ensureCommandAsDerivation = writeShellScript "ensure-emacs-profile-${name}" ensureConfigCommand;
+
   normalDerivation = runCommandNoCC "emacs-profile-${name}"
     {
       preferLocalBuild = true;
@@ -59,8 +89,10 @@ let
     } ''
     mkdir -p $out/bin
     makeWrapper ${package}/bin/emacs $out/bin/emacs-${name} \
+      ${if origin != null then "--run ${ensureCommandAsDerivation}" else ""} \
       --add-flags "--with-profile '${profileArg}'"
     makeWrapper ${package}/bin/emacsclient $out/bin/emacsclient-${name} \
+      ${if origin != null then "--run ${ensureCommandAsDerivation}" else ""} \
       --add-flags "-s ${name}"
   '';
 
@@ -69,12 +101,14 @@ let
     preferLocalBuild = true;
     paths = [
       (writeShellScriptBin "emacs-${name}" ''
+        ${ensureConfigCommand}
         exec nix run --no-update-lock-file "${expandTilde directory}${appName}" \
           -- --with-profile '${profileArg}' "$@"
       '')
     ] ++ (lib.optional (clientAppName != null)
       (writeShellScriptBin "emacsclient-${name}"
         ''
+          ${ensureConfigCommand}
           exec nix run --no-update-lock-file "${expandTilde directory}${clientAppName}" \
             -- --with-profile '${profileArg}' "$@"
         ''));
