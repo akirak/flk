@@ -54,8 +54,11 @@ myHandleEventHook =
 myKeybindings =
   [ ((mod4Mask, xK_p), spawn "rofi -show combi -combi-modi window,drun,run")
   , ((mod4Mask, xK_r), renameWorkspace myXPConfig)
+  -- Restart without recompiling, since Nix builds xmonad
+  , ((mod4Mask, xK_q), spawn "xmonad --restart")
   , ((mod4Mask, xK_BackSpace), swapScreens)
   , ((mod4Mask .|. shiftMask, xK_q), confirmQuit)
+  , ((mod4Mask, xK_Insert), runWorkspaceAction)
   ]
   ++
   [ ((modm, key), c horizontalScreenOrderer f)
