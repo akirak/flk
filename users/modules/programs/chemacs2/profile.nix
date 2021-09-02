@@ -8,6 +8,8 @@
 , lib
 , emacs
 , homeDirectory
+  # Whether to add a suffix to executables
+, suffixExecutables ? true
 , # Use 'nix run' instead of package
   useNixRun ? false
 , # Name of the profile
@@ -51,6 +53,8 @@ let
 
   absoluteDirectory = expandTilde directory;
 
+  executableSuffix = if suffixExecutables then "-${name}" else "";
+
   ensureConfigCommand =
     if origin == null
     then ""
@@ -83,10 +87,10 @@ let
       propagatedBuildInputs = [ package ];
     } ''
     mkdir -p $out/bin
-    makeWrapper ${package}/bin/emacs $out/bin/emacs-${name} \
+    makeWrapper ${package}/bin/emacs $out/bin/emacs${executableSuffix} \
       ${if origin != null then "--run ${ensureCommandAsDerivation}" else ""} \
       --add-flags "--with-profile '${profileArg}'"
-    makeWrapper ${package}/bin/emacsclient $out/bin/emacsclient-${name} \
+    makeWrapper ${package}/bin/emacsclient $out/bin/emacsclient${executableSuffix} \
       ${if origin != null then "--run ${ensureCommandAsDerivation}" else ""} \
       --add-flags "-s ${name}"
   '';
@@ -95,17 +99,17 @@ let
     name = "emacs-profile-${name}-run";
     preferLocalBuild = true;
     paths = [
-      (writeShellScriptBin "emacs-${name}" ''
+      (writeShellScriptBin "emacs${executableSuffix}" ''
         ${ensureConfigCommand}
         exec nix run --no-update-lock-file "${expandTilde directory}${appName}" \
           -- --with-profile '${profileArg}' "$@"
       '')
     ] ++ (lib.optional (clientAppName != null)
-      (writeShellScriptBin "emacsclient-${name}"
+      (writeShellScriptBin "emacsclient${executableSuffix}"
         ''
           ${ensureConfigCommand}
           exec nix run --no-update-lock-file "${expandTilde directory}${clientAppName}" \
-            -- --with-profile '${profileArg}' "$@"
+            -- -s ${name} "$@"
         ''));
   };
 
@@ -123,7 +127,7 @@ symlinkJoin {
     (makeDesktopItem {
       name = "Emacs Profile ${name}";
       type = "Application";
-      exec = "${drv}/bin/emacs-${name}";
+      exec = "${drv}/bin/emacs${executableSuffix}";
       desktopName = "emacs-${name}";
       terminal = false;
     })
