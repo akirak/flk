@@ -6,7 +6,7 @@ import XMonad.Util.EZConfig
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Actions.PhysicalScreens
+import qualified XMonad.Actions.PhysicalScreens as P
 import XMonad.Actions.DynamicWorkspaces
 import System.Exit
 import qualified XMonad.StackSet as W
@@ -61,9 +61,9 @@ myKeybindings =
   , ((mod4Mask, xK_Insert), runWorkspaceAction)
   ]
   ++
-  [ ((modm, key), c horizontalScreenOrderer f)
-  | (modm, f) <- [(mod4Mask, W.view) ,(mod4Mask .|. shiftMask, W.shift)]
-  , (key, c) <- [(xK_w, onPrevNeighbour), (xK_e, onNextNeighbour)]
+  [ ((modm, key), f P.horizontalScreenOrderer c)
+  | (modm, f) <- [(mod4Mask, P.viewScreen) ,(mod4Mask .|. shiftMask, P.sendToScreen)]
+  , (key, c) <- [(xK_w, 0), (xK_e, 1)]
   ]
   ++
   [ ((mod4Mask, key), do viewWorkspaceByPrefix (show i)
