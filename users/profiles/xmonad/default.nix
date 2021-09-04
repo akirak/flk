@@ -32,6 +32,10 @@
         h.dbus
       ];
       config = ./xmonad.hs;
+      libFiles = {
+        "Polybar.hs" = ./lib/Polybar.hs;
+        "Actions.hs" = ./lib/Actions.hs;
+      };
     };
 
   };
