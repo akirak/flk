@@ -118,18 +118,16 @@ in
 
   nix = {
 
-    autoOptimiseStore = true;
-
     gc = {
       # I will define the GC frequently in individual host settings.
       # The format is defined in systemd.time (7)
       #
-      # dates = "weekly";
+      dates = "2weeks";
 
       automatic = true;
     };
 
-    optimise.automatic = true;
+    optimise.automatic = false;
 
     useSandbox = true;
 
