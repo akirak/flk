@@ -125,6 +125,7 @@
               profiles.emacs
               profiles.zsh
               profiles.nix-tools
+              profiles.convenience
             ];
             graphical = base ++ [
               profiles.firefox
