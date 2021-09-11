@@ -21,6 +21,7 @@
       agenix.inputs.nixpkgs.follows = "latest";
       nixos-hardware.url = "github:nixos/nixos-hardware";
       impermanence.url = "github:nix-community/impermanence";
+      my-nur.url = "github:akirak/nur-packages";
 
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
@@ -118,8 +119,11 @@
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = rec {
             base = [
-              profiles.direnv profiles.git profiles.gpg
-              profiles.emacs profiles.zsh
+              profiles.direnv
+              profiles.git
+              profiles.gpg
+              profiles.emacs
+              profiles.zsh
               profiles.nix-tools
             ];
             graphical = base ++ [
@@ -127,14 +131,21 @@
               profiles.alacritty
               profiles.mpv
             ];
-            development = graphical ++ [profiles.xmonad];
-            home = [ profiles.rclone ];
+            development =
+              graphical
+              ++
+              [
+                profiles.xmonad
+              ];
+            home = [
+              profiles.rclone
+            ];
           };
         };
       };
 
       devshell.externalModules = { pkgs, ... }: {
-        packages = [ pkgs.gnumake ];
+        packages = [ pkgs.gnumake pkgs.nvfetcher ];
       };
 
       homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;

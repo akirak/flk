@@ -26,4 +26,6 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  users.defaultUserShell = pkgs.zsh;
+
 }

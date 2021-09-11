@@ -10,3 +10,6 @@ doc/index.html
 vm
 iso
 doi
+
+# nvfetcher
+.shake.*

@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  sources = pkgs.callPackage ./_build/generated.nix { };
+in
 {
   home.packages = with pkgs; [
     nix-zsh-completions
@@ -23,32 +26,26 @@
           name = "zsh-history-substring-search";
           src = pkgs.zsh-history-substring-search;
         }
-        # {
-        #   name = "pure";
-        #   src = pkgs.nur.akirak.zsh-pure-prompt;
-        # }
-        # {
-        #   name = "enhancd";
-        #   # file = "init.sh";
-        #   src = pkgs.nur.akirak.zsh-enhancd;
-        # }
-        # {
-        #   name = "fzy";
-        #   src = pkgs.nur.akirak.zsh-fzy;
-        # }
-        # {
-        #   name = "fast-syntax-highlighting";
-        #   src = pkgs.nur.akirak.zsh-fast-syntax-highlighting;
-        # }
-        # {
-        #   name = "nix-shell";
-        #   src =  pkgs.nur.akirak.zsh-nix-shell;
-        # }
+        {
+          name = "enhancd";
+          # file = "init.sh";
+          inherit (sources.enhancd) src;
+        }
+        {
+          name = "fzy";
+          inherit (sources.fzy) src;
+        }
+        {
+          name = "nix-shell";
+          inherit (sources.nix-shell) src;
+        }
+        {
+          name = "fast-syntax-highlighting";
+          inherit (sources.fast-syntax-highlighting) src;
+        }
       ];
       sessionVariables = {
         "DIRSTACKSIZE" = "20";
-        # "SPACESHIP_DIR_TRUNC_REPO" = "false";
-        # "SPACESHIP_DIR_TRUNC" = "0";
         "NIX_BUILD_SHELL" = "zsh";
         # "VAGRANT_WSL_WINDOWS_ACCESS" = "1";
         # Set locale archives
@@ -94,12 +91,12 @@ export NIX_BUILD_SHELL=bash
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-function mr-all() {
-  for d in ~ /public /private; do
-    [[ -d $d ]] || continue
-    cd $d && mr "$@"
-  done
+export STARSHIP_CONFIG=${
+  pkgs.writeText "starship.toml"
+  (pkgs.lib.fileContents ../../../profiles/core/starship.toml)
 }
+
+eval "$(${pkgs.starship}/bin/starship init zsh)"
 
 # if [[ -f ~/.asdf/asdf.sh ]]; then
 #    source ~/.asdf/asdf.sh
@@ -126,20 +123,20 @@ function mr-all() {
         "nsearch" = "nix search --no-update-lock-file nixpkgs";
       };
 
-      profileExtra = ''
-emulate sh
-if [ -f /etc/profile ] && [ ! -v __ETC_PROFILE_DONE ]; then
-  . /etc/profile
-fi
-if [ -f ~/.profile ]; then
-  . ~/.profile
-fi
-emulate zsh
+#       profileExtra = ''
+# emulate sh
+# if [ -f /etc/profile ] && [ ! -v __ETC_PROFILE_DONE ]; then
+#   . /etc/profile
+# fi
+# if [ -f ~/.profile ]; then
+#   . ~/.profile
+# fi
+# emulate zsh
 
-if [[ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]]; then
-  source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-fi
-'';
+# if [[ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]]; then
+#   source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+# fi
+# '';
   };
 
 }

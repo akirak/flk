@@ -1,0 +1,19 @@
+[enhancd]
+src.git = "https://github.com/b4b4r07/enhancd.git"
+src.branch = "master"
+fetch.git = "https://github.com/b4b4r07/enhancd.git"
+
+[fast-syntax-highlighting]
+src.github = "zdharma/fast-syntax-highlighting"
+src.branch = "master"
+fetch.github = "zdharma/fast-syntax-highlighting"
+
+[nix-shell]
+src.git = "https://github.com/chisui/zsh-nix-shell.git"
+src.branch = "master"
+fetch.git = "https://github.com/chisui/zsh-nix-shell.git"
+
+[fzy]
+src.git = "https://github.com/aperezdc/zsh-fzy.git"
+src.branch = "master"
+fetch.git = "https://github.com/aperezdc/zsh-fzy.git"
