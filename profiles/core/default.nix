@@ -105,13 +105,19 @@ in
   };
 
   fonts = {
-    fonts = with pkgs; [ powerline-fonts dejavu_fonts ];
+    fonts = with pkgs; [
+      (callPackage ./jetbrains-mono.nix {})
+      merriweather
+      lato
+    ];
 
     fontconfig.defaultFonts = {
 
-      monospace = [ "DejaVu Sans Mono for Powerline" ];
+      monospace = [ "JetBrains Mono NF" ];
 
-      sansSerif = [ "DejaVu Sans" ];
+      sansSerif = [ "Lato" ];
+
+      serif = [ "Merriweather" ];
 
     };
   };

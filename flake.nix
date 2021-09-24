@@ -131,6 +131,7 @@
               profiles.firefox
               profiles.alacritty
               profiles.mpv
+              profiles.fonts
             ];
             development =
               graphical
