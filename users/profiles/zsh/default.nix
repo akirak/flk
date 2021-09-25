@@ -106,9 +106,10 @@ eval "$(${pkgs.starship}/bin/starship init zsh)"
         ".." = "cd ..";
         "..." = "cd ../..";
         "nvfetcher" = "nix run github:berberman/nvfetcher";
-        "ls" = "ls --color=auto";
-        "la" = "ls -a";
-        "ll" = "ls -l";
+        # Drop these in favour of exa
+        # "ls" = "ls --color=auto";
+        # "la" = "ls -a";
+        # "ll" = "ls -l";
         "rm" = "rm -i";
         "j" = "journalctl -xe";
         "start" = "systemctl --user start";

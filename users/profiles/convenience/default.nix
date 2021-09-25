@@ -6,4 +6,9 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
 }
