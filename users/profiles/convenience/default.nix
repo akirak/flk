@@ -1,5 +1,12 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    du-dust
+    duf
+    glances
+    xh
+  ];
+
   programs.bat.enable = true;
 
   programs.broot = {
