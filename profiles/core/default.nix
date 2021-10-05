@@ -12,22 +12,22 @@ in
       binutils
       coreutils
       curl
-      direnv
+      # direnv
       dnsutils
       dosfstools
-      fd
-      git
-      gotop
+      # fd
+      # git
+      # gotop
       gptfdisk
       cryptsetup
       iputils
-      jq
+      # jq
       manix
       moreutils
       nix-index
       nmap
-      ripgrep
-      skim
+      # ripgrep
+      # skim
       tealdeer
       usbutils
       utillinux
