@@ -69,7 +69,7 @@ runWorkspaceAction = do
     where
       go :: String -> X ()
       go "emacs" = spawn "emacs-default" -- This is my custom wrapper around Emacs
-      go "web" = spawn "firefox --new-window"
+      go "web" = spawn "brave --new-window"
       go "monday" = browse "https://monday.com"
       go "github" = browse "https://github.com"
       go "music" = browse "https://music.youtube.com"
@@ -77,4 +77,4 @@ runWorkspaceAction = do
 
 -- | Open a URL with the browser.
 browse :: String -> X ()
-browse url = spawn $ "firefox --new-window " ++ url
+browse url = spawn $ "brave --new-window " ++ url

@@ -128,7 +128,7 @@
               profiles.convenience
             ];
             graphical = base ++ [
-              profiles.firefox
+              profiles.browser
               profiles.alacritty
               profiles.mpv
               profiles.fonts
