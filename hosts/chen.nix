@@ -45,7 +45,11 @@
   #  networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  environment.systemPackages = with pkgs; [ clinfo ];
+  environment.systemPackages = with pkgs; [
+    clinfo
+    # Maybe switch to tenacity soon?
+    audacity
+  ];
 
   # Decrypt LUKS storage on boot
   # boot.initrd.luks.reusePassphrases = true;
