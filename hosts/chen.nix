@@ -124,4 +124,10 @@
 
   virtualisation.virtualbox.host.enable = true;
 
+  services.journald = {
+    extraConfig = ''
+      SystemMaxFiles=5
+    '';
+  };
+
 }
