@@ -5,6 +5,8 @@
     duf
     glances
     xh
+    fd
+    ripgrep
   ];
 
   programs.bat.enable = true;
