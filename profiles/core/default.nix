@@ -22,10 +22,13 @@ in
       cryptsetup
       iputils
       # jq
+      # lsmod
       manix
       moreutils
       nix-index
       nmap
+      # For lspci
+      pciutils
       # ripgrep
       # skim
       tealdeer
