@@ -7,6 +7,7 @@
     xh
     fd
     ripgrep
+    jq
   ];
 
   programs.bat.enable = true;
