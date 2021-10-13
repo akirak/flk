@@ -35,6 +35,7 @@ in
       usbutils
       utillinux
       whois
+      unzip
     ];
 
     sessionVariables = {
