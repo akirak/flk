@@ -49,6 +49,7 @@
     clinfo
     # Maybe switch to tenacity soon?
     audacity
+    vagrant
   ];
 
   # Decrypt LUKS storage on boot
