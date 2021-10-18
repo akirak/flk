@@ -8,6 +8,7 @@
     fd
     ripgrep
     jq
+    nvfetcher
   ];
 
   programs.bat.enable = true;

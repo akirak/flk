@@ -105,7 +105,7 @@ eval "$(${pkgs.starship}/bin/starship init zsh)"
       shellAliases = {
         ".." = "cd ..";
         "..." = "cd ../..";
-        "nvfetcher" = "nix run github:berberman/nvfetcher";
+        # "nvfetcher" = "nix run github:berberman/nvfetcher";
         # Drop these in favour of exa
         # "ls" = "ls --color=auto";
         # "la" = "ls -a";
