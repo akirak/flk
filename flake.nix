@@ -13,7 +13,7 @@
       };
       darwin.url = "github:LnL7/nix-darwin";
       darwin.inputs.nixpkgs.follows = "latest";
-      home.url = "github:nix-community/home-manager/release-21.05";
+      home.url = "github:nix-community/home-manager";
       home.inputs.nixpkgs.follows = "nixos";
       naersk.url = "github:nix-community/naersk";
       naersk.inputs.nixpkgs.follows = "latest";
@@ -132,6 +132,7 @@
               profiles.alacritty
               profiles.mpv
               profiles.fonts
+              profiles.blanket
             ];
             development =
               graphical

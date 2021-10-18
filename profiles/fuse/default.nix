@@ -6,7 +6,7 @@
     user_allow_other
   '';
 
-  security.wrappers = {
-    fusermount.source  = "/run/wrappers/bin/fusermount";
-  };
+  # security.wrappers = {
+  #   fusermount.source  = "/run/wrappers/bin/fusermount";
+  # };
 }
