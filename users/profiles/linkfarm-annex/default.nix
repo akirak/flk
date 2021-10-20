@@ -32,7 +32,7 @@
         };
 
         Install = {
-          Wants = [
+          WantedBy = [
             "default.target"
           ];
         };
