@@ -72,7 +72,7 @@ runWorkspaceAction = do
       go "web" = spawn "firefox --new-window"
       go "monday" = firefox "https://monday.com"
       go "github" = firefox "https://github.com"
-      go "music" = firefox "https://music.youtube.com"
+      -- go "music" = firefox "https://music.youtube.com"
       go _ = return ()
 
 -- | Open a URL with the browser.
