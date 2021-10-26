@@ -38,6 +38,7 @@ myManageHook =
     [ resource =? ".arandr-wrapped" --> doFloat
     , resource =? ".blueman-manager-wrapped" --> doFloat
     , resource =? "pavucontrol" --> doFloat
+    , resource =? "com.rafaelmardojai.Blanket" --> doFloat
     , className =? "mpv" --> doFloat
     ]
 
