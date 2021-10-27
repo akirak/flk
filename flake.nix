@@ -102,6 +102,7 @@
             personal-desktop =
               graphical ++
               [
+                localization
                 fuse
                 podman
                 xmonad
