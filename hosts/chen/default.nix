@@ -6,6 +6,7 @@
     ./networking.nix
     ./intel-video.nix
     ./apps.nix
+    ../../profiles/development
   ];
 
   networking.hostName = "chen";
