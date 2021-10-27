@@ -24,4 +24,10 @@
       fsType = "zfs";
     };
 
+  fileSystems."/var/lib/postgresql" =
+    {
+      device = "rpool/safe/postgresql";
+      fsType = "zfs";
+    };
+
 }
