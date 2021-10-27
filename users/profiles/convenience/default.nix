@@ -9,6 +9,7 @@
     ripgrep
     jq
     nvfetcher
+    tealdeer
   ];
 
   programs.bat.enable = true;

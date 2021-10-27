@@ -34,9 +34,6 @@
   networking.hostId = "1450b997";
 
   # Maintenance
-  nix.gc = {
-    dates = "2weeks";
-  };
   services.journald = {
     extraConfig = ''
       SystemMaxFiles=5

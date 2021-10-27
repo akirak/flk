@@ -93,7 +93,16 @@
             users = digga.lib.importers.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base = [ core users.root yubikey smartd us-keyboard ];
+            base = [
+              core
+              starship
+              cachix
+              fonts
+              users.root
+              yubikey
+              smartd
+              us-keyboard
+            ];
             graphical = base ++ [
               gnome
               sound

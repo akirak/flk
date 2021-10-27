@@ -93,7 +93,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export STARSHIP_CONFIG=${
   pkgs.writeText "starship.toml"
-  (pkgs.lib.fileContents ../../../profiles/core/starship.toml)
+    (pkgs.lib.fileContents ../../../profiles/starship/starship.toml)
 }
 
 eval "$(${pkgs.starship}/bin/starship init zsh)"
