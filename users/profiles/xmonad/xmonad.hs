@@ -27,7 +27,7 @@ main = do
 myWorkspaces =
   ["1-emacs", "2-web"] ++
   [show i | i <- [3..8]] ++
-  ["9-github", "0-monday"]
+  ["9-github"]
 
 myLayoutHook =
   avoidStruts (layoutHook defaultConfig)

@@ -70,7 +70,6 @@ runWorkspaceAction = do
       go :: String -> X ()
       go "emacs" = spawn "emacs-default" -- This is my custom wrapper around Emacs
       go "web" = spawn "firefox --new-window"
-      go "monday" = firefox "https://monday.com"
       go "github" = firefox "https://github.com"
       -- go "music" = firefox "https://music.youtube.com"
       go _ = return ()
