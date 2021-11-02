@@ -388,6 +388,44 @@
         "type": "indirect"
       }
     },
+    "nyxt": {
+      "inputs": {
+        "nixpkgs": [
+          "latest"
+        ],
+        "nyxt": "nyxt_2"
+      },
+      "locked": {
+        "lastModified": 1631889736,
+        "narHash": "sha256-tVoHn503UtMsWROWPC6zvhS9wupMUIWexEhsMUIDtiY=",
+        "owner": "ngi-nix",
+        "repo": "nyxt",
+        "rev": "af8cdeb0f8f7a4d852abed85af775e216381ee45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ngi-nix",
+        "repo": "nyxt",
+        "type": "github"
+      }
+    },
+    "nyxt_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1625049452,
+        "narHash": "sha256-GdTOFu5yIIL9776kfbo+KS1gHH1xNCfZSWF5yHUB9U8=",
+        "owner": "atlas-engineer",
+        "repo": "nyxt",
+        "rev": "93a2af10f0b305740db0a3232ecb690cd43791f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atlas-engineer",
+        "ref": "2.1.1",
+        "repo": "nyxt",
+        "type": "github"
+      }
+    },
     "pkgs": {
       "inputs": {
         "nixpkgs": [
@@ -434,6 +472,7 @@
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",
         "nur": "nur",
+        "nyxt": "nyxt",
         "pkgs": "pkgs"
       }
     },

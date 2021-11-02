@@ -25,6 +25,11 @@
 
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
+
+      nyxt = {
+        url = "github:ngi-nix/nyxt";
+        inputs.nixpkgs.follows = "latest";
+      };
     };
 
   outputs =
@@ -37,6 +42,7 @@
     , nixos-hardware
     , nur
     , agenix
+    , nyxt
     , ...
     } @ inputs:
     digga.lib.mkFlake {
@@ -54,7 +60,11 @@
             agenix.overlay
           ];
         };
-        latest = { };
+        latest = {
+          overlays = [
+            nyxt.overlay
+          ];
+        };
       };
 
       lib = import ./lib { lib = digga.lib // nixos.lib; };
