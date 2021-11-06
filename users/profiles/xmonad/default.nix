@@ -19,6 +19,9 @@
     enable = true;
 
     initExtra = ''
+      if [ -f ~/.screenlayout/default.sh ]; then
+        . ~/.screenlayout/default.sh
+      fi
       setxkbmap -option ctrl:nocaps
       pasystray &
       blueman-applet &
