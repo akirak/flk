@@ -13,6 +13,7 @@
     pasystray
     dunst # for dunstctl
     xmonad-log
+    systemd-rofi
   ];
 
   xsession = {

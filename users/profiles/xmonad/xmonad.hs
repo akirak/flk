@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Config
 import XMonad.Prompt
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
@@ -47,6 +48,7 @@ myHandleEventHook =
 
 myKeybindings =
   [ ((mod4Mask, xK_p), rofi)
+  ,  ((mod4Mask, xK_s), safeSpawnProg "systemd-rofi")
   , ((mod4Mask, xK_r), renameWorkspace myXPConfig)
   -- Restart without recompiling, since Nix builds xmonad
   , ((mod4Mask, xK_q), spawn "xmonad --restart")
