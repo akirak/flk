@@ -16,14 +16,14 @@
 
   fileSystems."/assets/archives/personal/git" =
     {
-      device = "rpool/git/archives";
+      device = "rpool/git/private";
       fsType = "zfs";
       options = [ "noatime" ];
     };
 
-  fileSystems."/assets/archives/hoard/git" =
+  fileSystems."/assets/archives/oss" =
     {
-      device = "rpool/git/hoard";
+      device = "rpool/git/oss";
       fsType = "zfs";
       options = [ "noatime" ];
     };
@@ -42,7 +42,7 @@
       options = [ "noatime" ];
     };
 
-  fileSystems."/assets/archives/hoard/media" =
+  fileSystems."/assets/archives/hoard" =
     {
       device = "rpool/media/hoard";
       fsType = "zfs";
