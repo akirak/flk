@@ -48,7 +48,7 @@ myHandleEventHook =
 
 myKeybindings =
   [ ((mod4Mask, xK_p), rofi)
-  ,  ((mod4Mask, xK_s), safeSpawnProg "systemd-rofi")
+  ,  ((mod4Mask, xK_s), safeSpawnProg "rofi-systemd")
   , ((mod4Mask, xK_r), renameWorkspace myXPConfig)
   -- Restart without recompiling, since Nix builds xmonad
   , ((mod4Mask, xK_q), spawn "xmonad --restart")
