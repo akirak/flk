@@ -3,8 +3,9 @@
   environment.systemPackages = [ pkgs.clinfo ];
 
   services.xserver = {
-    videoDriver = "intel";
-
+    videoDrivers = [
+      "modesetting"
+    ];
     useGlamor = true;
     xrandrHeads = [
       {
