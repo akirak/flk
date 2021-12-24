@@ -223,24 +223,6 @@
         "type": "indirect"
       }
     },
-    "my-nur": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1631558006,
-        "narHash": "sha256-BeoWupnGUeDjAQK6EgOg/RQrZahMCTWdbGrHx2wdSko=",
-        "owner": "akirak",
-        "repo": "nur-packages",
-        "rev": "3345c7b4c40272b56b6c081f747ffc1b04edab4f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akirak",
-        "repo": "nur-packages",
-        "type": "github"
-      }
-    },
     "naersk": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -370,22 +352,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1628725965,
-        "narHash": "sha256-jk/H8lBwj7crskYPRnM84/xJyNckh8agzKFQsumJCL4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "17b4b7097f1899628f926c415a7b9a2cfebaf440",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
         "lastModified": 1615921934,
@@ -479,7 +445,6 @@
         "home": "home",
         "impermanence": "impermanence",
         "latest": "latest",
-        "my-nur": "my-nur",
         "naersk": "naersk_2",
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",

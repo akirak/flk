@@ -21,7 +21,6 @@
       agenix.inputs.nixpkgs.follows = "latest";
       nixos-hardware.url = "github:nixos/nixos-hardware";
       impermanence.url = "github:nix-community/impermanence";
-      my-nur.url = "github:akirak/nur-packages";
 
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "nixos";
