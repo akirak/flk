@@ -4,8 +4,5 @@
   environment.systemPackages = with pkgs; [
     # Maybe switch to tenacity soon?
     audacity
-    vagrant
   ];
-
-  virtualisation.virtualbox.host.enable = true;
 }
