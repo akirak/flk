@@ -8,6 +8,4 @@
   ];
 
   virtualisation.virtualbox.host.enable = true;
-
-  virtualisation.lxd.enable = true;
 }
