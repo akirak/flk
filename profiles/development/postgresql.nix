@@ -2,7 +2,7 @@
 {
   services = {
     postgresql = {
-      enable = true;
+      enable = false;
 
       # The default is 5432, but I will change it to a different value
       # in case I make a mistake
