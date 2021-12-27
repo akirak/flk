@@ -10,6 +10,7 @@
     jq
     nvfetcher
     tealdeer
+    pre-commit
   ];
 
   programs.bat.enable = true;
