@@ -22,7 +22,7 @@
   services.dbus = {
     enable = true;
     # socketActivated = true;
-    packages = [ pkgs.gnome3.dconf ];
+    packages = [ pkgs.dconf ];
   };
 
   services.gnome.gnome-keyring.enable = true;
