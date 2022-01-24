@@ -1,3 +1,5 @@
+**Deprecation notice: This configuration is currently migrating to [a new repository](https://github.com/akirak/nix-config).**
+
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
 [![MIT License](https://img.shields.io/github/license/divnix/devos)][mit]
 
