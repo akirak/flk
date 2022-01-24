@@ -134,47 +134,11 @@
         };
       };
 
-      home = {
-        modules = ./users/modules/module-list.nix;
-        externalModules = [
-        ];
-        importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./users/profiles;
-          suites = rec {
-            base = [
-              profiles.direnv
-              profiles.git
-              profiles.gpg
-              profiles.emacs
-              profiles.zsh
-              profiles.nix-tools
-              profiles.convenience
-            ];
-            graphical = base ++ [
-              profiles.browser
-              profiles.alacritty
-              profiles.mpv
-              profiles.fonts
-              profiles.blanket
-            ];
-            development =
-              graphical
-              ++
-              [
-                profiles.xmonad
-              ];
-            home = [
-              profiles.rclone
-            ];
-          };
-        };
-      };
+      home = { };
 
       devshell.externalModules = { pkgs, ... }: {
         packages = [ pkgs.gnumake pkgs.nvfetcher ];
       };
-
-      homeConfigurations = digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
       deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
 
