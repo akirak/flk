@@ -1,4 +1,4 @@
-**Deprecation notice: This configuration is currently migrating to [a new repository](https://github.com/akirak/nix-config).**
+**Deprecation notice: I have migrated this configuration to [a new repository](https://github.com/akirak/nix-config), so I am not maintaining this repository any more**
 
 [![NixOS](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white)](https://nixos.org)
 [![MIT License](https://img.shields.io/github/license/divnix/devos)][mit]
